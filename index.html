@@ -1,10 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWave - Bootstrap 5</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        .card-service {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+        }
+        .social-link {
+            transition: color 0.3s ease;
+        }
+        .social-link:hover {
+            color: #ffffff !important;
+        }
+    </style>
 </head>
-<body>
-wazaa
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <i class="bi bi-lightning-charge-fill text-primary me-2"></i>TechWave
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Strona główna</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Usługi</a>
+                    <ul class="dropdown-menu dropdown-menu-dark shadow">
+                        <li><a class="dropdown-item" href="#">Web Design</a></li>
+                        <li><a class="dropdown-item" href="#">Mobile Apps</a></li>
+                        <li><a class="dropdown-item" href="#">Cloud</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Kontakt</a>
+                </li>
+                <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                    <a href="#" class="btn btn-primary fw-bold">Wycena projektu</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero bg-primary bg-gradient text-white py-5">
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-md-7">
+                <h1 class="display-4 fw-bold mb-4">Tworzymy cyfrową przyszłość</h1>
+                <p class="lead mb-4">Projektujemy nowoczesne rozwiązania cyfrowe — od responsywnych stron internetowych, przez aplikacje mobilne, aż po skalowalną infrastrukturę w chmurze. Twój sukces to nasza misja.</p>
+                <a href="#contact" class="btn btn-light btn-lg fw-bold px-4">Dowiedz się więcej</a>
+            </div>
+
+            <div class="col-md-5 d-none d-md-block">
+                <div class="rounded-3 d-flex flex-column align-items-center justify-content-center h-100 shadow" style="min-height: 300px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);">
+                    <i class="bi bi-display display-1 text-white-50"></i>
+                    <p class="text-white-50 mt-3 fs-5">Twój projekt tutaj</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats py-5 bg-white border-bottom">
+    <div class="container">
+        <div class="row row-cols-2 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card text-center border-0 bg-transparent">
+                    <div class="card-body">
+                        <h3 class="display-5 fw-bold text-primary">150+</h3>
+                        <p class="text-muted mb-0">Zadowolonych klientów</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center border-0 bg-transparent">
+                    <div class="card-body">
+                        <h3 class="display-5 fw-bold text-primary">320</h3>
+                        <p class="text-muted mb-0">Zrealizowanych projektów</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center border-0 bg-transparent">
+                    <div class="card-body">
+                        <h3 class="display-5 fw-bold text-primary">8</h3>
+                        <p class="text-muted mb-0">Lat doświadczenia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center border-0 bg-transparent">
+                    <div class="card-body">
+                        <h3 class="display-5 fw-bold text-primary">12</h3>
+                        <p class="text-muted mb-0">Krajów na świecie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services py-5 bg-light">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Nasze usługi</h2>
+            <p class="text-muted">Kompleksowe rozwiązania dopasowane do Twoich potrzeb</p>
+        </div>
+
+        <ul class="nav nav-tabs justify-content-center mb-4 border-0 gap-2">
+            <li class="nav-item">
+                <button class="nav-link active border rounded text-dark" data-bs-toggle="tab" data-bs-target="#tab-web"><i class="bi bi-laptop me-2"></i>Web Design</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link border rounded text-dark" data-bs-toggle="tab" data-bs-target="#tab-mobile"><i class="bi bi-phone me-2"></i>Mobile Apps</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link border rounded text-dark" data-bs-toggle="tab" data-bs-target="#tab-cloud"><i class="bi bi-cloud me-2"></i>Cloud</button>
+            </li>
+        </ul>
+
+        <div class="tab-content bg-white p-4 p-md-5 rounded shadow-sm mb-5 border">
+            <div class="tab-pane fade show active" id="tab-web">
+                <div class="row align-items-center g-4">
+                    <div class="col-md-6">
+                        <h3 class="fw-bold mb-3">Web Design</h3>
+                        <p class="text-muted">Tworzymy estetyczne, responsywne strony i aplikacje webowe, które działają perfekcyjnie na każdym urządzeniu. Łączymy nowoczesny design z wysoką wydajnością i dostępnością.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush border-0">
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Responsywny design (Mobile First)</li>
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Optymalizacja SEO</li>
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Wysoka wydajność i Core Web Vitals</li>
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Integracja z systemami CMS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab-mobile">
+                <div class="row align-items-center g-4">
+                    <div class="col-md-6">
+                        <h3 class="fw-bold mb-3">Mobile Apps</h3>
+                        <p class="text-muted">Budujemy wydajne, natywne i hybrydowe aplikacje na najpopularniejsze platformy mobilne, dbając o płynne działanie i doskonałe wrażenia użytkownika.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush border-0">
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Aplikacje iOS (Swift) oraz Android (Kotlin)</li>
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Rozwiązania Cross-platform (Flutter, React Native)</li>
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Powiadomienia Push i integracja z API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab-cloud">
+                <div class="row align-items-center g-4">
+                    <div class="col-md-6">
+                        <h3 class="fw-bold mb-3">Cloud</h3>
+                        <p class="text-muted">Migrujemy systemy do chmury i projektujemy skalowalne architektury serverless, które rosną razem z Twoim biznesem i gwarantują stabilność.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush border-0">
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Migracja do chmury (AWS, Azure, GCP)</li>
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Architektura Serverless i Mikroserwisy</li>
+                            <li class="list-group-item border-0 px-0"><i class="bi bi-check-circle-fill text-primary me-3"></i>Wsparcie DevOps (CI/CD, Docker, Kubernetes)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 p-4 card-service text-center">
+                    <div class="mb-3 text-primary"><i class="bi bi-laptop display-4"></i></div>
+                    <h4 class="card-title fw-bold">Web Design</h4>
+                    <p class="card-text text-muted">Nowoczesne, responsywne strony internetowe i aplikacje webowe zaprojektowane z myślą o użytkowniku i konwersji.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 p-4 card-service text-center">
+                    <div class="mb-3 text-primary"><i class="bi bi-phone display-4"></i></div>
+                    <h4 class="card-title fw-bold">Mobile Apps</h4>
+                    <p class="card-text text-muted">Natywne i cross-platformowe aplikacje mobilne na iOS i Android, które zachwycają designem i płynnym działaniem.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 p-4 card-service text-center">
+                    <div class="mb-3 text-primary"><i class="bi bi-cloud-arrow-up display-4"></i></div>
+                    <h4 class="card-title fw-bold">Cloud</h4>
+                    <p class="card-text text-muted">Skalowalna infrastruktura chmurowa, migracje i rozwiązania DevOps, które obniżają koszty i zwiększają niezawodność.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact py-5 bg-white text-center border-top border-bottom">
+    <div class="container py-4">
+        <h2 class="fw-bold mb-3">Skontaktuj się z nami</h2>
+        <p class="text-muted mx-auto mb-4" style="max-width: 600px;">Masz pytanie lub chcesz omówić swój projekt? Napisz do nas — odpowiemy w ciągu 24 godzin i wspólnie znajdziemy najlepsze rozwiązanie.</p>
+        <button class="btn btn-primary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#contactModal">
+            <i class="bi bi-envelope me-2"></i>Napisz do nas
+        </button>
+    </div>
+</section>
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-primary text-white border-0">
+                <h5 class="modal-title fw-bold" id="contactModalLabel">Wyślij wiadomość</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form class="needs-validation" novalidate onsubmit="this.classList.add('was-validated'); event.preventDefault();">
+                    <div class="mb-3">
+                        <label for="name" class="form-label fw-bold text-muted small uppercase">Imię i nazwisko</label>
+                        <input type="text" class="form-control" id="name" required>
+                        <div class="invalid-feedback">Pole imię i nazwisko jest wymagane.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-bold text-muted small uppercase">Adres e-mail</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">Wprowadź poprawny adres e-mail.</div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="form-label fw-bold text-muted small uppercase">Wiadomość</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                        <div class="invalid-feedback">Wiadomość nie może być pusta.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 fw-bold py-2">Wyślij formularz</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer bg-dark text-white pt-5 pb-3">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+            <div class="col">
+                <h5 class="fw-bold mb-3"><i class="bi bi-lightning-charge-fill text-primary me-2"></i>TechWave</h5>
+                <p class="text-white-50 small pe-md-4">Tworzymy cyfrową przyszłość — nowoczesne strony, aplikacje mobilne i rozwiązania chmurowe dla firm każdej wielkości.</p>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="#" class="text-white-50 social-link fs-5"><i class="bi bi-github"></i></a>
+                    <a href="#" class="text-white-50 social-link fs-5"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white-50 social-link fs-5"><i class="bi bi-twitter-x"></i></a>
+                </div>
+            </div>
+            <div class="col">
+                <h5 class="fw-bold mb-3">Usługi</h5>
+                <ul class="list-unstyled small">
+                    <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none social-link"><i class="bi bi-chevron-right me-1 text-primary"></i> Web Design</a></li>
+                    <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none social-link"><i class="bi bi-chevron-right me-1 text-primary"></i> Mobile Apps</a></li>
+                    <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none social-link"><i class="bi bi-chevron-right me-1 text-primary"></i> Cloud</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h5 class="fw-bold mb-3">Kontakt</h5>
+                <ul class="list-unstyled text-white-50 small">
+                    <li class="mb-2"><i class="bi bi-envelope text-primary me-2"></i> kontakt@techwave.pl</li>
+                    <li class="mb-2"><i class="bi bi-telephone text-primary me-2"></i> +48 123 456 789</li>
+                    <li class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i> ul. Innowacyjna 42, 00-001 Warszawa</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-top border-secondary mt-4 pt-4 text-center text-white-50 small">
+            &copy; 2026 TechWave. Wszelkie prawa zastrzeżone.
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
