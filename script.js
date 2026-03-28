@@ -1,4 +1,4 @@
-const textArray = ["STUDIUJĘ INFORMATYKĘ.", "TWORZĘ NOWOCZESNY KOD.", "ZDOBYWAM SZCZYTY."];
+const textArray = ["STUDIUJĘ INFORMATYKĘ.", "DOBRZE DZIAŁAM POD PRESJĄ", "LUBIE PRÓBOWAC NOWYCH RZECZY.", "NIE BOJE SIE WYZWAŃ"];
 let textIndex = 0;
 let charIndex = 0;
 const typewriterElement = document.getElementById("typewriter");

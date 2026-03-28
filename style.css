@@ -1,10 +1,11 @@
 :root {
-    --bg-dark: #050d0a;          /* Bardzo ciemna, głęboka zieleń */
-    --bg-darker: #020605;        /* Prawie czarny nefryt */
-    --text-primary: #ffffff;
-    --text-secondary: #b8aa94;
-    --accent: #ff7800;           /* Mocny pomarańcz (Energy Orange) */
-    --accent-hover: #e66b00;     /* Głęboki pomarańcz */
+    --bg-dark: #0b0503;
+    --bg-darker: #000000;
+    --text-primary: #f8fafc;
+    --text-secondary: #b8a494;
+    --accent: #ff8000;
+    --copper: #b87333;
+    --orange-glow: rgba(255, 120, 0, 0.1);
     --font-heading: 'Chakra Petch', sans-serif;
     --font-body: 'Exo 2', sans-serif;
 }
@@ -15,6 +16,9 @@ html {
 
 body {
     background-color: var(--bg-dark);
+    /* Poprawiona płytka drukowana - jaśniejsze linie i większy kontrast */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100"><g stroke="%23ff8000" stroke-width="0.8" stroke-opacity="0.15" fill="none"><path d="M0,50 L100,50 M50,0 L50,100"/><circle cx="50" cy="50" r="3"/><circle cx="10" cy="10" r="2"/><circle cx="90" cy="90" r="2"/><path d="M10,10 L10,30 M10,10 L30,10 M90,90 L90,70 M90,90 L70,90"/></g></svg>');
+    background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-body);
     font-weight: 400;
@@ -24,6 +28,7 @@ body {
 
 .bg-darker {
     background-color: var(--bg-darker);
+    background-image: radial-gradient(circle at 10% 90%, var(--orange-glow) 0%, rgba(0, 0, 0, 0) 50%);
 }
 
 h1, h2, h3, h4 {
@@ -34,12 +39,10 @@ h1, h2, h3, h4 {
     letter-spacing: 1px;
 }
 
-.text-accent {
-    color: var(--accent);
-}
+.text-accent { color: var(--accent) !important; }
 
 .navbar-elegant {
-    background: rgba(5, 13, 10, 0.9);
+    background: rgba(20, 14, 6, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 120, 0, 0.2);
     padding: 15px 0;
@@ -50,7 +53,7 @@ h1, h2, h3, h4 {
     font-weight: 700;
     font-style: italic;
     font-size: 1.8rem;
-    color: var(--accent) !important;
+    color: var(--copper) !important;
 }
 
 .nav-link {
@@ -60,12 +63,9 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
     font-style: italic;
     margin-left: 20px;
-    transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-    color: var(--accent) !important;
-}
+.nav-link:hover { color: var(--accent) !important; }
 
 .hero-section {
     height: 100vh;
@@ -73,8 +73,7 @@ h1, h2, h3, h4 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Gradient pomarańczowy rozmyty w ciemnej zieleni */
-    background: radial-gradient(circle at 50% 50%, rgba(255, 120, 0, 0.1) 0%, rgba(5, 13, 10, 0) 70%);
+    background: radial-gradient(circle at 50% 50%, var(--orange-glow) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
 .typewriter-cursor::after {
@@ -83,9 +82,7 @@ h1, h2, h3, h4 {
     animation: blink 1s step-end infinite;
 }
 
-@keyframes blink {
-    50% { opacity: 0; }
-}
+@keyframes blink { 50% { opacity: 0; } }
 
 .btn-elegant {
     border: 2px solid var(--accent);
@@ -99,23 +96,18 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
     padding: 15px 35px;
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-elegant:hover {
     background: var(--accent);
     color: #000;
-    box-shadow: 4px 4px 0px rgba(255, 120, 0, 0.5);
+    box-shadow: 4px 4px 0px #ffffff;
     transform: translate(-4px, -4px);
 }
 
-.section-elegant {
-    padding: 100px 0;
-}
-
-.lead {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-}
+.section-elegant { padding: 100px 0; }
 
 .about-grid {
     position: relative;
@@ -124,7 +116,7 @@ h1, h2, h3, h4 {
 
 .grid-img {
     position: absolute;
-    border: 3px solid var(--accent);
+    border: 3px solid var(--copper);
     box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
     transition: all 0.4s ease;
     object-fit: cover;
@@ -133,52 +125,57 @@ h1, h2, h3, h4 {
 .grid-img:hover {
     transform: scale(1.05) translate(-5px, -5px);
     z-index: 10;
-    box-shadow: 15px 15px 0px rgba(255, 120, 0, 0.3);
+    box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.2);
 }
 
-.img-1 {
-    width: 60%;
-    height: 250px;
-    top: 0;
-    left: 0;
-    z-index: 3;
+.img-1 { width: 60%; height: 250px; top: 0; left: 0; z-index: 3; }
+.img-2 { width: 50%; height: 200px; bottom: 0; left: 20%; z-index: 4; }
+.img-3 { width: 45%; height: 220px; top: 10%; right: 0; z-index: 2; }
+
+.passion-card {
+    background: var(--bg-darker);
+    border: 1px solid rgba(255, 120, 0, 0.2);
+    padding: 40px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
 }
 
-.img-2 {
-    width: 50%;
-    height: 200px;
-    bottom: 0;
-    left: 20%;
-    z-index: 4;
-}
-
-.img-3 {
-    width: 45%;
-    height: 220px;
-    top: 10%;
-    right: 0;
-    z-index: 2;
-}
-
-.mountain-gallery .gallery-item {
-    overflow: hidden;
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
-}
-
-.mountain-gallery .gallery-item:hover {
+.passion-card:hover {
     border-color: var(--accent);
+    box-shadow: 0 0 30px rgba(255, 120, 0, 0.1);
 }
 
-.mountain-gallery img {
-    width: 100%;
-    height: 300px;
+.skill-img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    transition: transform 0.5s ease;
-    filter: grayscale(30%) sepia(20%); /* Lekki ciepły ton zdjęć pasujący do pomarańczu */
+    border: 2px solid var(--copper);
+    z-index: 5;
+    transition: all 0.4s ease;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.8);
+    top: -20px;
+    right: -20px;
+    transform: rotate(12deg);
 }
 
-.mountain-gallery .gallery-item:hover img {
-    transform: scale(1.1);
-    filter: grayscale(0%) sepia(0%);
+.passion-card:hover .skill-img {
+    transform: scale(1.1) rotate(-8deg);
+    box-shadow: 8px 8px 0px rgba(255, 128, 0, 0.3);
+    z-index: 10;
+}
+
+@media (max-width: 991px) {
+    .passion-card {
+        margin-top: 30px;
+        padding: 30px;
+    }
+
+    .skill-img {
+        width: 80px;
+        height: 80px;
+        top: -15px;
+        right: -15px;
+    }
 }

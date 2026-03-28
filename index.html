@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERYK PORFTOLIO</title>
+    <title>PORTFOLIO | START</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700;1,700&family=Exo+2:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&family=Exo+2:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-elegant">
     <div class="container">
-        <a class="navbar-brand" href="#home">ERYK.</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <a class="navbar-brand" href="index.html">ERYK.</a>
+        <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#home">Start</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">O mnie</a></li>
-                <li class="nav-item"><a class="nav-link" href="#mountains">PASJE</a></li>
+                <li><a class="nav-link" href="index.html">Start</a></li>
+                <li><a class="nav-link" href="passions.html">Pasje</a></li>
             </ul>
         </div>
     </div>
@@ -29,8 +25,8 @@
 <section class="hero-section" id="home">
     <div class="container">
         <h1 class="display-1 mb-4 text-accent">CZEŚĆ, JESTEM ERYK</h1>
-        <h3 class="lead fs-2 mb-5 text-primary typewriter-cursor" id="typewriter"></h3>
-        <a href="#about" class="btn btn-elegant px-5">ZOBACZ CO ROBIĘ</a>
+        <h3 class="lead fs-2 mb-5 text-accent typewriter-cursor" id="typewriter"></h3>
+        <a href="#about" class="btn btn-elegant px-5">SPRAWDŹ</a>
     </div>
 </section>
 
@@ -38,50 +34,57 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5 mb-5 mb-lg-0">
-                <h2 class="display-5 mb-4">INFORMATYKA TO MÓJ ŻYWIOŁ</h2>
-                <p class="lead mb-4">Studiuję informatykę i jaram się nowymi technologiami. Kodowanie to dla mnie nie tylko nauka, ale przede wszystkim tworzenie rzeczy, które działają i świetnie wyglądają. Lubię, gdy w projektach dużo się dzieje, a interfejsy są dynamiczne i przyjemne dla oka.</p>
-                <a href="#mountains" class="btn btn-elegant mt-3">MOJA DRUGA PASJA</a>
+                <h2 class="display-5 mb-4 text-accent">INFORMATYKA TO MÓJ ŻYWIOŁ</h2>
+                <p class="lead mb-4">Studiuję informatykę i jaram się nowymi technologiami. Kodowanie to dla mnie nie tylko nauka, ale przede wszystkim tworzenie rzeczy, które działają i świetnie wyglądają.</p>
+                <a href="passions.html" class="btn btn-elegant">MOJE PASJE</a>
             </div>
             <div class="col-lg-7">
                 <div class="about-grid">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Kodowanie" class="grid-img img-1">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Setup" class="grid-img img-2">
-                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Matrix" class="grid-img img-3">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Kod" class="grid-img img-1">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Praca" class="grid-img img-2">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Tech" class="grid-img img-3">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section-elegant bg-darker" id="mountains">
+<section class="section-elegant bg-darker" id="skills">
     <div class="container">
-        <div class="row mb-5">
+        <div class="row mb-5 pb-5">
             <div class="col-12 text-center">
-                <h2 class="display-5 mb-3 text-accent">GDY ODPINAM SIĘ OD SIECI</h2>
-                <p class="lead">Góry to moje miejsce na reset. Świeże powietrze, zmęczenie i najlepsze widoki.</p>
+                <h2 class="display-5 mb-3 text-accent">KIERUNKI ROZWOJU</h2>
+                <p class="lead">W czym aktualnie dłubię i co przykuwa moją uwagę.</p>
             </div>
         </div>
-        <div class="mountain-gallery">
-            <div class="row g-4">
-                <div class="col-md-4 gallery-item">
-                    <img src="https://media.istockphoto.com/id/1130859000/photo/vacations-in-poland-gasienicowa-valley-tatra-mountains-poland.jpg?s=612x612&w=0&k=20&c=2dhC3UzERo-j4f3ko2dhahm66uWdeSI3b1RMDRAyo5w=" alt="Góry 1">
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-6 col-md-6">
+                <div class="passion-card h-100">
+                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=300&q=80" alt="Web Dev" class="skill-img">
+                    <h3 class="mb-4">TWORZENIE STRON</h3>
+                    <p class="text-secondary mb-0">Lubię projektować i kodować strony internetowe. Przekładanie luźnych pomysłów na działający, dobrze wyglądający kod i budowanie interfejsów sprawia mi po prostu sporą frajdę.</p>
                 </div>
-                <div class="col-md-4 gallery-item">
-                    <img src="https://thumbs.dreamstime.com/b/beautiful-mountain-stream-captured-stunning-realistic-detail-breathtaking-photo-scene-majestic-crystal-clear-358658946.jpg" alt="Góry 2">
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="passion-card h-100">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=300&q=80" alt="Project Management" class="skill-img">
+                    <h3 class="mb-4">PROJECT MANAGEMENT</h3>
+                    <p class="text-secondary mb-0">Spinanie tego wszystkiego w jedną całość. Uczę się, jak zarządzać projektami, planować zadania i organizować pracę, żeby dowozić fajne rzeczy na czas i bez zbędnego chaosu.</p>
                 </div>
-                <div class="col-md-4 gallery-item">
-                    <img src="https://www.jessleephotos.com/images/xl/Hood-Sunrise1474.jpg" alt="Góry 3">
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="passion-card h-100">
+                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=300&q=80" alt="Cyber Security" class="skill-img">
+                    <h3 class="mb-4">CYBERBEZPIECZEŃSTWO</h3>
+                    <p class="text-secondary mb-0">Dopiero wchodzę w ten świat, ale mocno mnie wciągnął. Zaczynam interesować się tym, jak zabezpieczać systemy, szukać luk i rozumieć mechanizmy działania współczesnych zagrożeń w sieci.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<footer class="text-center text-secondary py-5">
-    <div class="container">
-        <p class="mb-0">&copy; 2026 Eryk. Kod i Góry.</p>
-    </div>
-</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
