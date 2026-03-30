@@ -4,6 +4,7 @@
     --text-primary: #f8fafc;
     --text-secondary: #b8a494;
     --accent: #ff8000;
+    --accent2: #f8fafc;
     --copper: #b87333;
     --orange-glow: rgba(255, 120, 0, 0.1);
     --font-heading: 'Chakra Petch', sans-serif;
@@ -14,11 +15,19 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+/* Styl dla dynamicznego tła */
+#circuit-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
     background-color: var(--bg-dark);
-    /* Poprawiona płytka drukowana - jaśniejsze linie i większy kontrast */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100"><g stroke="%23ff8000" stroke-width="0.8" stroke-opacity="0.15" fill="none"><path d="M0,50 L100,50 M50,0 L50,100"/><circle cx="50" cy="50" r="3"/><circle cx="10" cy="10" r="2"/><circle cx="90" cy="90" r="2"/><path d="M10,10 L10,30 M10,10 L30,10 M90,90 L90,70 M90,90 L70,90"/></g></svg>');
-    background-attachment: fixed;
+}
+
+body {
+    background-color: transparent; /* Canvas zajmuje się tłem */
     color: var(--text-primary);
     font-family: var(--font-body);
     font-weight: 400;
@@ -73,7 +82,7 @@ h1, h2, h3, h4 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: radial-gradient(circle at 50% 50%, var(--orange-glow) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle at 50% 50%, var(--orange-glow) 0%, rgba(0, 0, 0, 0) 50%);
 }
 
 .typewriter-cursor::after {
@@ -128,6 +137,16 @@ h1, h2, h3, h4 {
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.2);
 }
 
+#about {
+    position: relative;
+    background: radial-gradient(
+            ellipse at center,
+            rgba(255, 120, 0, 0.12) 0%,
+            rgba(11, 5, 3, 0) 75%
+    );
+    background-blend-mode: screen;
+}
+
 .img-1 { width: 60%; height: 250px; top: 0; left: 0; z-index: 3; }
 .img-2 { width: 50%; height: 200px; bottom: 0; left: 20%; z-index: 4; }
 .img-3 { width: 45%; height: 220px; top: 10%; right: 0; z-index: 2; }
@@ -164,6 +183,7 @@ h1, h2, h3, h4 {
     transform: scale(1.1) rotate(-8deg);
     box-shadow: 8px 8px 0px rgba(255, 128, 0, 0.3);
     z-index: 10;
+    border-color: white;
 }
 
 @media (max-width: 991px) {
@@ -178,4 +198,84 @@ h1, h2, h3, h4 {
         top: -15px;
         right: -15px;
     }
+}
+.skill-img-left {
+    right: auto;
+    left: -20px;
+    transform: rotate(-12deg);
+}
+
+.passion-card:hover .skill-img-left {
+    transform: scale(1.1) rotate(8deg);
+}
+
+/* --- DODANE WYŁĄCZNIE DLA PODSTRONY GÓRY (NIE PSUJE BAZY) --- */
+.kgp-img-container {
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: 1px solid rgba(255, 128, 0, 0.3);
+}
+
+.kgp-img-container img {
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.kgp-img-container:hover img {
+    transform: scale(1.03);
+}
+
+.kgp-badge {
+    background: var(--accent);
+    color: black;
+    padding: 5px 15px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .kgp-img-container { height: 300px; }
+}
+/* --- KARUZELA 3D (ZMINIMALIZOWANA) --- */
+.carousel-stacked-container {
+    display: flex; justify-content: center; align-items: center; gap: 15px;
+    overflow: hidden; padding: 20px 0;
+}
+
+.carousel-stacked-btn {
+    background: transparent; border: none; color: var(--accent);
+    font-size: 2.5rem; cursor: pointer; transition: 0.3s; z-index: 100;
+}
+.carousel-stacked-btn:hover { color: #fff; transform: scale(1.1); }
+
+.carousel-stacked {
+    position: relative; width: 50%; max-width: 500px; height: 320px; /* Kompaktowy rozmiar */
+    display: flex; justify-content: center; align-items: center;
+}
+
+.stacked-card {
+    position: absolute; width: 100%; height: 100%;
+    background: var(--bg-darker); border: 1px solid rgba(255, 128, 0, 0.3);
+    padding: 30px; display: flex; flex-direction: column; justify-content: space-between;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.stacked-card h3 { color: #fff; font-size: 1.6rem; letter-spacing: 2px; font-style: italic; }
+.stage-stats { border-top: 1px solid rgba(255, 128, 0, 0.2); padding-top: 15px; margin-top: 10px; }
+
+/* Układ kart 3D */
+.stacked-card.active { transform: translateX(0) scale(1); z-index: 50; opacity: 1; border-color: var(--accent); }
+.stacked-card.next { transform: translateX(65%) scale(0.85); z-index: 30; opacity: 0.4; cursor: pointer; }
+.stacked-card.prev { transform: translateX(-65%) scale(0.85); z-index: 30; opacity: 0.4; cursor: pointer; }
+
+@media (max-width: 768px) {
+    .carousel-stacked { width: 80%; height: 360px; }
+    .stacked-card.next, .stacked-card.prev { opacity: 0; pointer-events: none; } /* Na telefonie chowamy boczne karty */
 }
