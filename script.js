@@ -1,4 +1,5 @@
-// --- TWOJA LOGIKA TYPEWRITER (BEZ ZMIAN) ---
+//======================================TYPEWRITER (BEZ ZMIAN)========================================
+
 const textArray = ["STUDIUJĘ INFORMATYKĘ.", "DOBRZE DZIAŁAM POD PRESJĄ", "LUBIE PRÓBOWAC NOWYCH RZECZY.", "NIE BOJE SIE WYZWAŃ"];
 let textIndex = 0;
 let charIndex = 0;
@@ -29,7 +30,7 @@ function eraseText() {
     }
 }
 
-// --- TWOJA LOGIKA TŁA CANVA + NOWA INTERAKCJA Z MYSZKĄ ---
+// ========================= LOGIKA TŁA CANVA + INTERAKCJA Z MYSZKĄ ======================================================
 const canvas = document.getElementById('circuit-bg');
 const ctx = canvas.getContext('2d');
 
@@ -50,13 +51,13 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-// --- NOWE: Nasłuchiwanie ruchu myszy ---
+// ---  Nasłuchiwanie ruchu myszy ---
 window.addEventListener('mousemove', function(event) {
     mouse.x = event.x;
     mouse.y = event.y;
 });
 
-// --- NOWE: Resetowanie pozycji myszy, gdy kursor opuści okno ---
+// ---  Resetowanie pozycji myszy, gdy kursor opuści okno ---
 window.addEventListener('mouseleave', function() {
     mouse.x = undefined;
     mouse.y = undefined;
@@ -88,7 +89,7 @@ class Particle {
 }
 
 // Generowanie cząsteczek (70)
-for (let i = 0; i < 70; i++) {
+for (let i = 0; i < 100; i++) {
     particles.push(new Particle());
 }
 
@@ -161,3 +162,5 @@ function moveCarousel(direction) {
         card.className = 'stacked-card ' + cardPositions[index];
     });
 }
+
+//==================================PROJEKTY==========================
