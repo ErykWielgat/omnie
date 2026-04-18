@@ -308,6 +308,11 @@ h1, h2, h3, h4 {
     position: relative;
     background-color: inherit;
     width: 50%;
+    z-index: 2;
+}
+
+.timeline-item:not(:first-child) {
+    margin-top: -100px;
 }
 
 .timeline-item.left {
@@ -342,6 +347,7 @@ h1, h2, h3, h4 {
 }
 
 .glass-card {
+    position: relative;
     background: rgba(11, 5, 3, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -390,4 +396,36 @@ h1, h2, h3, h4 {
     .timeline-item.left .timeline-dot, .timeline-item.right .timeline-dot {
         left: 12px;
     }
+}
+.timeline-content {
+    line-height: 1.2;
+}
+
+.timeline-content p,
+.timeline-content ul {
+    margin-bottom: 0.8rem !important;
+}
+
+.glass-card {
+    padding: 25px 30px;
+}
+.card-date-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-darker);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 4px 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 10;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.glass-card:hover .card-date-badge {
+    background-color: var(--accent);
+    color: #000;
+    box-shadow: 0 0 10px var(--accent);
 }
