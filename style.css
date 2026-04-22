@@ -1,3 +1,7 @@
+/* ==========================================================================
+   GLOBALNE / WSZYSTKIE PODSTRONY
+   Odpowiada za: Zmienne kolorów, dynamiczne tło (canvas), czcionki i pasek nawigacji
+========================================================================== */
 :root {
     --bg-dark: #0b0503;
     --bg-darker: #000000;
@@ -15,7 +19,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Styl dla dynamicznego tła */
 #circuit-bg {
     position: fixed;
     top: 0;
@@ -27,7 +30,7 @@ html {
 }
 
 body {
-    background-color: transparent; /* Canvas zajmuje się tłem */
+    background-color: transparent;
     color: var(--text-primary);
     font-family: var(--font-body);
     font-weight: 400;
@@ -48,7 +51,9 @@ h1, h2, h3, h4 {
     letter-spacing: 1px;
 }
 
-.text-accent { color: var(--accent) !important; }
+.text-accent {
+    color: var(--accent) !important;
+}
 
 .navbar-elegant {
     background: rgba(20, 14, 6, 0.95);
@@ -74,8 +79,14 @@ h1, h2, h3, h4 {
     margin-left: 20px;
 }
 
-.nav-link:hover { color: var(--accent) !important; }
+.nav-link:hover {
+    color: var(--accent) !important;
+}
 
+/* ==========================================================================
+   PODSTRONA: START (index.html)
+   Odpowiada za: Główny ekran powitalny, efekt pisania na maszynie i główne przyciski
+========================================================================== */
 .hero-section {
     height: 100vh;
     display: flex;
@@ -91,7 +102,11 @@ h1, h2, h3, h4 {
     animation: blink 1s step-end infinite;
 }
 
-@keyframes blink { 50% { opacity: 0; } }
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
 
 .btn-elegant {
     border: 2px solid var(--accent);
@@ -116,8 +131,14 @@ h1, h2, h3, h4 {
     transform: translate(-4px, -4px);
 }
 
-.section-elegant { padding: 100px 0; }
+.section-elegant {
+    padding: 100px 0;
+}
 
+/* ==========================================================================
+   PODSTRONA: PASJE (passions.html)
+   Odpowiada za: Siatkę zdjęć ("About"), karty z umiejętnościami, galerię KGP i karuzelę 3D
+========================================================================== */
 .about-grid {
     position: relative;
     height: 400px;
@@ -139,17 +160,33 @@ h1, h2, h3, h4 {
 
 #about {
     position: relative;
-    background: radial-gradient(
-            ellipse at center,
-            rgba(255, 120, 0, 0.12) 0%,
-            rgba(11, 5, 3, 0) 75%
-    );
+    background: radial-gradient(ellipse at center, rgba(255, 120, 0, 0.12) 0%, rgba(11, 5, 3, 0) 75%);
     background-blend-mode: screen;
 }
 
-.img-1 { width: 60%; height: 250px; top: 0; left: 0; z-index: 3; }
-.img-2 { width: 50%; height: 200px; bottom: 0; left: 20%; z-index: 4; }
-.img-3 { width: 45%; height: 220px; top: 10%; right: 0; z-index: 2; }
+.img-1 {
+    width: 60%;
+    height: 250px;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.img-2 {
+    width: 50%;
+    height: 200px;
+    bottom: 0;
+    left: 20%;
+    z-index: 4;
+}
+
+.img-3 {
+    width: 45%;
+    height: 220px;
+    top: 10%;
+    right: 0;
+    z-index: 2;
+}
 
 .passion-card {
     background: var(--bg-darker);
@@ -186,19 +223,6 @@ h1, h2, h3, h4 {
     border-color: white;
 }
 
-@media (max-width: 991px) {
-    .passion-card {
-        margin-top: 30px;
-        padding: 30px;
-    }
-
-    .skill-img {
-        width: 80px;
-        height: 80px;
-        top: -15px;
-        right: -15px;
-    }
-}
 .skill-img-left {
     right: auto;
     left: -20px;
@@ -209,7 +233,19 @@ h1, h2, h3, h4 {
     transform: scale(1.1) rotate(8deg);
 }
 
-/* --- DODANE WYŁĄCZNIE DLA PODSTRONY GÓRY (NIE PSUJE BAZY) --- */
+@media (max-width: 991px) {
+    .passion-card {
+        margin-top: 30px;
+        padding: 30px;
+    }
+    .skill-img {
+        width: 80px;
+        height: 80px;
+        top: -15px;
+        right: -15px;
+    }
+}
+
 .kgp-img-container {
     height: 450px;
     display: flex;
@@ -241,45 +277,108 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
-    .kgp-img-container { height: 300px; }
+    .kgp-img-container {
+        height: 300px;
+    }
 }
-/* --- KARUZELA 3D (ZMINIMALIZOWANA) --- */
+
 .carousel-stacked-container {
-    display: flex; justify-content: center; align-items: center; gap: 15px;
-    overflow: hidden; padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    overflow: hidden;
+    padding: 20px 0;
 }
 
 .carousel-stacked-btn {
-    background: transparent; border: none; color: var(--accent);
-    font-size: 2.5rem; cursor: pointer; transition: 0.3s; z-index: 100;
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 100;
 }
-.carousel-stacked-btn:hover { color: #fff; transform: scale(1.1); }
+
+.carousel-stacked-btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
 
 .carousel-stacked {
-    position: relative; width: 50%; max-width: 500px; height: 320px; /* Kompaktowy rozmiar */
-    display: flex; justify-content: center; align-items: center;
+    position: relative;
+    width: 50%;
+    max-width: 500px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .stacked-card {
-    position: absolute; width: 100%; height: 100%;
-    background: var(--bg-darker); border: 1px solid rgba(255, 128, 0, 0.3);
-    padding: 30px; display: flex; flex-direction: column; justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-darker);
+    border: 1px solid rgba(255, 128, 0, 0.3);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.stacked-card h3 { color: #fff; font-size: 1.6rem; letter-spacing: 2px; font-style: italic; }
-.stage-stats { border-top: 1px solid rgba(255, 128, 0, 0.2); padding-top: 15px; margin-top: 10px; }
+.stacked-card h3 {
+    color: #fff;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    font-style: italic;
+}
 
-/* Układ kart 3D */
-.stacked-card.active { transform: translateX(0) scale(1); z-index: 50; opacity: 1; border-color: var(--accent); }
-.stacked-card.next { transform: translateX(65%) scale(0.85); z-index: 30; opacity: 0.4; cursor: pointer; }
-.stacked-card.prev { transform: translateX(-65%) scale(0.85); z-index: 30; opacity: 0.4; cursor: pointer; }
+.stage-stats {
+    border-top: 1px solid rgba(255, 128, 0, 0.2);
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.stacked-card.active {
+    transform: translateX(0) scale(1);
+    z-index: 50;
+    opacity: 1;
+    border-color: var(--accent);
+}
+
+.stacked-card.next {
+    transform: translateX(65%) scale(0.85);
+    z-index: 30;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.stacked-card.prev {
+    transform: translateX(-65%) scale(0.85);
+    z-index: 30;
+    opacity: 0.4;
+    cursor: pointer;
+}
 
 @media (max-width: 768px) {
-    .carousel-stacked { width: 80%; height: 360px; }
-    .stacked-card.next, .stacked-card.prev { opacity: 0; pointer-events: none; } /* Na telefonie chowamy boczne karty */
+    .carousel-stacked {
+        width: 80%;
+        height: 360px;
+    }
+    .stacked-card.next,
+    .stacked-card.prev {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
-/*==========================PRJECTS===================*/
+
+/* ==========================================================================
+   PODSTRONA: PROJEKTY (projects.html)
+   Odpowiada za: Główną oś czasu (Timeline), karty projektów i znaczniki technologii
+========================================================================== */
 .bg-accent {
     background-color: var(--accent) !important;
 }
@@ -352,7 +451,7 @@ h1, h2, h3, h4 {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 128, 0, 0.2);
-    padding: 30px;
+    padding: 25px 30px;
     transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
@@ -393,10 +492,12 @@ h1, h2, h3, h4 {
     .timeline-item.right {
         left: 0;
     }
-    .timeline-item.left .timeline-dot, .timeline-item.right .timeline-dot {
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
         left: 12px;
     }
 }
+
 .timeline-content {
     line-height: 1.2;
 }
@@ -406,9 +507,6 @@ h1, h2, h3, h4 {
     margin-bottom: 0.8rem !important;
 }
 
-.glass-card {
-    padding: 25px 30px;
-}
 .card-date-badge {
     position: absolute;
     top: -15px;
@@ -424,8 +522,327 @@ h1, h2, h3, h4 {
     transition: all 0.3s ease;
     white-space: nowrap;
 }
+
 .glass-card:hover .card-date-badge {
     background-color: var(--accent);
     color: #000;
     box-shadow: 0 0 10px var(--accent);
+}
+
+/* ==========================================================================
+   PODSTRONA: PLANER KGP (planer.html) - BAZA I STRUKTURA
+   Odpowiada za: Główny podział ekranu na mapę po lewej i archiwum po prawej
+========================================================================== */
+.planner-body {
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.split-layout {
+    display: flex;
+    margin-top: 70px;
+    height: calc(100vh - 70px);
+    width: 100vw;
+}
+
+.map-section {
+    flex-grow: 1;
+    position: relative;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================================================
+   PODSTRONA: PLANER KGP (planer.html) - PRAWY PASEK (ARCHIWUM)
+   Odpowiada za: Boczny panel po prawej stronie, filtry, listę gór i checkboxy
+========================================================================== */
+.archive-section {
+    width: 340px;
+    background: rgba(11, 5, 3, 0.95);
+    border-left: 1px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    z-index: 10;
+}
+
+.custom-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 128, 0, 0.3);
+    color: var(--text-primary);
+    padding: 10px 15px;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+select.custom-input option {
+    background: var(--bg-dark);
+}
+
+.db-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 10px;
+}
+
+.db-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.db-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 128, 0, 0.5);
+}
+
+.db-item {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 128, 0, 0.2);
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.db-item:hover {
+    border-color: var(--accent);
+}
+
+.db-item.conquered {
+    border-color: #28a745;
+    background: rgba(40, 167, 69, 0.05);
+}
+
+.db-item.conquered .peak-name {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.cyber-checkbox {
+    width: 22px;
+    height: 22px;
+    appearance: none;
+    border: 2px solid var(--accent);
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.cyber-checkbox:checked {
+    background: #28a745;
+    border-color: #28a745;
+}
+
+.cyber-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: #000;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   PODSTRONA: PLANER KGP (planer.html) - ELEMENTY MAPY
+   Odpowiada za: Wygląd kulek na mapie, podświetlenia i dymki (tooltipy)
+========================================================================== */
+.cyber-marker {
+    width: 16px !important;
+    height: 16px !important;
+    background-color: var(--bg-darker);
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.cyber-marker.conquered-marker {
+    background-color: #28a745 !important;
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent) !important;
+}
+
+.leaflet-tooltip.cyber-tooltip {
+    background: rgba(11, 5, 3, 0.95);
+    border: 1px solid var(--accent);
+    color: white;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-style: italic;
+    padding: 5px 12px;
+    box-shadow: 0 0 15px rgba(255, 128, 0, 0.4);
+    border-radius: 0;
+}
+
+.leaflet-tooltip.cyber-tooltip::before {
+    border-top-color: var(--accent);
+}
+
+/* ==========================================================================
+   PODSTRONA: PLANER KGP (planer.html) - WYSKAKUJĄCE OKIENKO (MODAL)
+   Odpowiada za: Tło przyciemniające ekran, okno ze szczegółami szczytu i statystyki
+========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-modal {
+    position: relative;
+    width: 90%;
+    max-width: 650px;
+    background: rgba(11, 5, 3, 0.95);
+    border: 1px solid var(--accent);
+    padding: 40px;
+    box-shadow: 0 0 40px rgba(255, 128, 0, 0.2);
+}
+
+.glass-modal .modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: none;
+    padding: 0 0 20px 0;
+}
+
+
+#modal-desc {
+    line-height: 1.6;
+    margin-top: 15px !important;
+    font-size: 0.95rem;
+}
+.close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+    line-height: 0;
+}
+
+.close-btn:hover {
+    background: var(--accent);
+    color: #000;
+    transform: rotate(90deg);
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stat-box {
+    border: 1px solid rgba(255, 128, 0, 0.2);
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.stat-box.full-width {
+    grid-column: 1 / -1;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+    padding: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   PLANER KGP - RESPONSYWNOŚĆ
+   Odpowiada za: Dostosowanie planera do ekranów telefonów komórkowych
+========================================================================== */
+@media (max-width: 991px) {
+    .split-layout {
+        flex-direction: column;
+        height: auto;
+        margin-top: 70px;
+    }
+    .map-section {
+        height: 50vh;
+        width: 100%;
+    }
+    .archive-section {
+        width: 100%;
+        min-height: 50vh;
+    }
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+    .planner-body {
+        overflow: auto;
+    }
+}
+/* ==========================================================================
+   SYSTEM AUTORYZACJI (ADMIN / GUEST)
+========================================================================== */
+/* Zablokowany checkbox dla gościa */
+.cyber-checkbox:disabled {
+    border-color: rgba(255, 128, 0, 0.2);
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.cyber-checkbox:disabled:checked {
+    background: rgba(40, 167, 69, 0.4);
+    border-color: rgba(40, 167, 69, 0.4);
+}
+
+/* Przycisk wylogowania */
+.btn-outline-danger {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.btn-outline-danger:hover {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+.logout-fixed {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 5000;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    background: rgba(11, 5, 3, 0.9);
 }
