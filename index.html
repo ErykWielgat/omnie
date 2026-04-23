@@ -16,9 +16,9 @@
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
                 <li><a class="nav-link" href="index.html">Start</a></li>
-                <li><a class="nav-link" href="projects.html">Inicjatywy</a></li>
-                <li><a class="nav-link" href="passions.html">Pasje</a></li>
-                <li><a class="nav-link" href="planer.html" >PLANER KGP</a></li>
+                <li><a class="nav-link" href="initiative.html">Inicjatywy</a></li>
+                <li><a class="nav-link" href="aboutMe.html">o mnie</a></li>
+                <li><a class="nav-link" href="KGP.html" >PLANER KGP</a></li>
 
             </ul>
         </div>
@@ -39,7 +39,7 @@
             <div class="col-lg-5 mb-5 mb-lg-0">
                 <h2 class="display-5 mb-4 text-accent">INFORMATYKA TO COŚ CO LUBIĘ</h2>
                 <p class="lead mb-4">Studiuję informatykę i interesuję się nowymi technologiami. Kodowanie to dla mnie nie tylko nauka, ale przede wszystkim tworzenie rzeczy, które działają i świetnie wyglądają.</p>
-                <a href="passions.html" class="btn btn-elegant">MOJE PASJE</a>
+                <a href="aboutMe.html" class="btn btn-elegant">MOJE PASJE</a>
             </div>
             <div class="col-lg-7">
                 <div class="about-grid">
@@ -52,40 +52,44 @@
     </div>
 </section>
 
-<section class="section-elegant bg-darker" id="skills">
-    <div class="container">
-        <div class="row mb-5 pb-5">
-            <div class="col-12 text-center">
-                <h2 class="display-5 mb-3 text-accent">KIERUNKI ROZWOJU</h2>
-                <p class="lead">W czym aktualnie się rozwijam i co przykuwa moją uwagę.</p>
+<section class="container mb-5 pb-5" id="skills">
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h2 class="display-5 mb-3 text-accent fw-bold">KIERUNKI ROZWOJU</h2>
+            <p class="lead text-secondary">Obszary, w których aktualnie poszerzam swoje kompetencje technologiczne.</p>
+        </div>
+    </div>
+
+    <div class="carousel-stacked-container">
+        <button class="carousel-stacked-btn" onclick="moveCarousel('prev')">&#10094;</button>
+
+        <div class="carousel-stacked">
+            <div class="stacked-card active" onclick="if(this.classList.contains('next')) moveCarousel('next'); else if(this.classList.contains('prev')) moveCarousel('prev');">
+                <div class="stacked-card-body d-flex flex-column h-100 p-4">
+                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=600&q=80" alt="Web Development" class="img-fluid rounded mb-4" style="height: 180px; object-fit: cover;">
+                    <h3 class="h4 text-accent mb-3">FRONT-END DEVELOPMENT</h3>
+                    <p class="text-secondary mb-0">Projektowanie i wdrażanie responsywnych interfejsów webowych. Koncentruję się na pisaniu czystego, optymalnego kodu oraz płynnym przekładaniu koncepcji UI/UX na funkcjonalne produkty cyfrowe.</p>
+                </div>
+            </div>
+
+            <div class="stacked-card next" onclick="if(this.classList.contains('next')) moveCarousel('next'); else if(this.classList.contains('prev')) moveCarousel('prev');">
+                <div class="stacked-card-body d-flex flex-column h-100 p-4">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Project Management" class="img-fluid rounded mb-4" style="height: 180px; object-fit: cover;">
+                    <h3 class="h4 text-accent mb-3">PROJECT MANAGEMENT</h3>
+                    <p class="text-secondary mb-0">Koordynacja procesów i zarządzanie cyklem życia projektów IT. Skupiam się na optymalizacji przepływu pracy, efektywnym planowaniu zadań oraz terminowej realizacji celów bez obniżania jakości.</p>
+                </div>
+            </div>
+
+            <div class="stacked-card prev" onclick="if(this.classList.contains('next')) moveCarousel('next'); else if(this.classList.contains('prev')) moveCarousel('prev');">
+                <div class="stacked-card-body d-flex flex-column h-100 p-4">
+                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=600&q=80" alt="Cyber Security" class="img-fluid rounded mb-4" style="height: 180px; object-fit: cover;">
+                    <h3 class="h4 text-accent mb-3">CYBERBEZPIECZEŃSTWO</h3>
+                    <p class="text-secondary mb-0">Analiza zagrożeń i mechanizmów zabezpieczeń w sieci. Rozwijam kompetencje w zakresie identyfikacji luk systemowych, audytów bezpieczeństwa oraz wdrażania bezpiecznych praktyk programistycznych.</p>
+                </div>
             </div>
         </div>
 
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-6 col-md-6">
-                <div class="passion-card h-100">
-                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=300&q=80" alt="Web Dev" class="skill-img">
-                    <h3 class="mb-4">TWORZENIE STRON</h3>
-                    <p class="text-secondary mb-0">Lubię projektować i kodować strony internetowe. Przekładanie luźnych pomysłów na działający, dobrze wyglądający kod i budowanie interfejsów sprawia mi po prostu sporą frajdę.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="passion-card h-100">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=300&q=80" alt="Project Management" class="skill-img">
-                    <h3 class="mb-4">PROJECT MANAGEMENT</h3>
-                    <p class="text-secondary mb-0">Spinanie tego wszystkiego w jedną całość. Uczę się, jak zarządzać projektami, planować zadania i organizować pracę, żeby dowozić fajne rzeczy na czas i bez zbędnego chaosu.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="passion-card h-100">
-                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=300&q=80" alt="Cyber Security" class="skill-img">
-                    <h3 class="mb-4">CYBERBEZPIECZEŃSTWO</h3>
-                    <p class="text-secondary mb-0">Dopiero wchodzę w ten świat, ale mocno mnie wciągnął. Zaczynam interesować się tym, jak zabezpieczać systemy, szukać luk i rozumieć mechanizmy działania współczesnych zagrożeń w sieci.</p>
-                </div>
-            </div>
-        </div>
+        <button class="carousel-stacked-btn" onclick="moveCarousel('next')">&#10095;</button>
     </div>
 </section>
 

@@ -1,6 +1,5 @@
 /* ==========================================================================
-   GLOBALNE / WSZYSTKIE PODSTRONY
-   Odpowiada za: Zmienne kolorów, dynamiczne tło (canvas), czcionki i pasek nawigacji
+   ZMIENNE I KONFIGURACJA GLOBALNA
 ========================================================================== */
 :root {
     --bg-dark: #0b0503;
@@ -38,12 +37,7 @@ body {
     overflow-x: hidden;
 }
 
-.bg-darker {
-    background-color: var(--bg-darker);
-    background-image: radial-gradient(circle at 10% 90%, var(--orange-glow) 0%, rgba(0, 0, 0, 0) 50%);
-}
-
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     font-style: italic;
@@ -55,11 +49,19 @@ h1, h2, h3, h4 {
     color: var(--accent) !important;
 }
 
+.italic {
+    font-style: italic;
+}
+
+/* ==========================================================================
+   NAWIGACJA
+========================================================================== */
 .navbar-elegant {
     background: rgba(20, 14, 6, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 120, 0, 0.2);
     padding: 15px 0;
+    z-index: 1000;
 }
 
 .navbar-brand {
@@ -68,6 +70,7 @@ h1, h2, h3, h4 {
     font-style: italic;
     font-size: 1.8rem;
     color: var(--copper) !important;
+    text-decoration: none;
 }
 
 .nav-link {
@@ -84,28 +87,10 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   PODSTRONA: START (index.html)
-   Odpowiada za: Główny ekran powitalny, efekt pisania na maszynie i główne przyciski
+   KOMPONENTY WSPÓLNE
 ========================================================================== */
-.hero-section {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: radial-gradient(circle at 50% 50%, var(--orange-glow) 0%, rgba(0, 0, 0, 0) 50%);
-}
-
-.typewriter-cursor::after {
-    content: '_';
-    color: var(--accent);
-    animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
+.section-elegant {
+    padding: 100px 0;
 }
 
 .btn-elegant {
@@ -131,14 +116,55 @@ h1, h2, h3, h4 {
     transform: translate(-4px, -4px);
 }
 
-.section-elegant {
-    padding: 100px 0;
+.glass-card {
+    position: relative;
+    background: rgba(11, 5, 3, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 128, 0, 0.2);
+    padding: 25px 30px;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.bg-accent {
+    background-color: var(--accent) !important;
+}
+
+.hidden {
+    display: none !important;
 }
 
 /* ==========================================================================
-   PODSTRONA: PASJE (passions.html)
-   Odpowiada za: Siatkę zdjęć ("About"), karty z umiejętnościami, galerię KGP i karuzelę 3D
+   STRONA GŁÓWNA (index.html)
 ========================================================================== */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at 50% 50%, var(--orange-glow) 0%, rgba(0, 0, 0, 0) 50%);
+}
+
+.typewriter-cursor::after {
+    content: '_';
+    color: var(--accent);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+#about {
+    position: relative;
+    background: radial-gradient(ellipse at center, rgba(255, 120, 0, 0.12) 0%, rgba(11, 5, 3, 0) 75%);
+}
+
 .about-grid {
     position: relative;
     height: 400px;
@@ -158,130 +184,11 @@ h1, h2, h3, h4 {
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.2);
 }
 
-#about {
-    position: relative;
-    background: radial-gradient(ellipse at center, rgba(255, 120, 0, 0.12) 0%, rgba(11, 5, 3, 0) 75%);
-    background-blend-mode: screen;
-}
+.img-1 { width: 60%; height: 250px; top: 0; left: 0; z-index: 3; }
+.img-2 { width: 50%; height: 200px; bottom: 0; left: 20%; z-index: 4; }
+.img-3 { width: 45%; height: 220px; top: 10%; right: 0; z-index: 2; }
 
-.img-1 {
-    width: 60%;
-    height: 250px;
-    top: 0;
-    left: 0;
-    z-index: 3;
-}
-
-.img-2 {
-    width: 50%;
-    height: 200px;
-    bottom: 0;
-    left: 20%;
-    z-index: 4;
-}
-
-.img-3 {
-    width: 45%;
-    height: 220px;
-    top: 10%;
-    right: 0;
-    z-index: 2;
-}
-
-.passion-card {
-    background: var(--bg-darker);
-    border: 1px solid rgba(255, 120, 0, 0.2);
-    padding: 40px;
-    transition: all 0.3s ease;
-    position: relative;
-    text-align: center;
-}
-
-.passion-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 30px rgba(255, 120, 0, 0.1);
-}
-
-.skill-img {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border: 2px solid var(--copper);
-    z-index: 5;
-    transition: all 0.4s ease;
-    box-shadow: 6px 6px 0px rgba(0,0,0,0.8);
-    top: -20px;
-    right: -20px;
-    transform: rotate(12deg);
-}
-
-.passion-card:hover .skill-img {
-    transform: scale(1.1) rotate(-8deg);
-    box-shadow: 8px 8px 0px rgba(255, 128, 0, 0.3);
-    z-index: 10;
-    border-color: white;
-}
-
-.skill-img-left {
-    right: auto;
-    left: -20px;
-    transform: rotate(-12deg);
-}
-
-.passion-card:hover .skill-img-left {
-    transform: scale(1.1) rotate(8deg);
-}
-
-@media (max-width: 991px) {
-    .passion-card {
-        margin-top: 30px;
-        padding: 30px;
-    }
-    .skill-img {
-        width: 80px;
-        height: 80px;
-        top: -15px;
-        right: -15px;
-    }
-}
-
-.kgp-img-container {
-    height: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    border: 1px solid rgba(255, 128, 0, 0.3);
-}
-
-.kgp-img-container img {
-    max-height: 100%;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    transition: transform 0.5s ease;
-}
-
-.kgp-img-container:hover img {
-    transform: scale(1.03);
-}
-
-.kgp-badge {
-    background: var(--accent);
-    color: black;
-    padding: 5px 15px;
-    font-family: var(--font-heading);
-    font-weight: 700;
-}
-
-@media (max-width: 768px) {
-    .kgp-img-container {
-        height: 300px;
-    }
-}
-
+/* --- KARUZELA STACKED --- */
 .carousel-stacked-container {
     display: flex;
     justify-content: center;
@@ -301,16 +208,11 @@ h1, h2, h3, h4 {
     z-index: 100;
 }
 
-.carousel-stacked-btn:hover {
-    color: #fff;
-    transform: scale(1.1);
-}
-
 .carousel-stacked {
     position: relative;
     width: 50%;
     max-width: 500px;
-    height: 320px;
+    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -318,28 +220,17 @@ h1, h2, h3, h4 {
 
 .stacked-card {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: var(--bg-darker);
     border: 1px solid rgba(255, 128, 0, 0.3);
-    padding: 30px;
+    border-radius: 10px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.stacked-card h3 {
-    color: #fff;
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-    font-style: italic;
-}
-
-.stage-stats {
-    border-top: 1px solid rgba(255, 128, 0, 0.2);
-    padding-top: 15px;
-    margin-top: 10px;
 }
 
 .stacked-card.active {
@@ -352,7 +243,14 @@ h1, h2, h3, h4 {
 .stacked-card.next {
     transform: translateX(65%) scale(0.85);
     z-index: 30;
-    opacity: 0.4;
+    filter: brightness(0.5);
+    cursor: pointer;
+}
+
+.stacked-card.prev {
+    transform: translateX(-65%) scale(0.85);
+    z-index: 30;
+    filter: brightness(0.5);
     cursor: pointer;
 }
 
@@ -363,26 +261,9 @@ h1, h2, h3, h4 {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .carousel-stacked {
-        width: 80%;
-        height: 360px;
-    }
-    .stacked-card.next,
-    .stacked-card.prev {
-        opacity: 0;
-        pointer-events: none;
-    }
-}
-
 /* ==========================================================================
-   PODSTRONA: PROJEKTY (projects.html)
-   Odpowiada za: Główną oś czasu (Timeline), karty projektów i znaczniki technologii
+   INICJATYWY (initiative.html)
 ========================================================================== */
-.bg-accent {
-    background-color: var(--accent) !important;
-}
-
 .cyber-timeline {
     position: relative;
     max-width: 1000px;
@@ -405,7 +286,6 @@ h1, h2, h3, h4 {
 .timeline-item {
     padding: 10px 40px;
     position: relative;
-    background-color: inherit;
     width: 50%;
     z-index: 2;
 }
@@ -414,13 +294,8 @@ h1, h2, h3, h4 {
     margin-top: -100px;
 }
 
-.timeline-item.left {
-    left: 0;
-}
-
-.timeline-item.right {
-    left: 50%;
-}
+.timeline-item.left { left: 0; }
+.timeline-item.right { left: 50%; }
 
 .timeline-dot {
     position: absolute;
@@ -432,32 +307,15 @@ h1, h2, h3, h4 {
     top: 30px;
     border-radius: 50%;
     z-index: 1;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.timeline-item.right .timeline-dot {
-    left: -8px;
-}
+.timeline-item.right .timeline-dot { left: -8px; }
 
 .timeline-item:hover .timeline-dot {
     transform: scale(1.3);
     box-shadow: 0 0 15px var(--accent);
     background-color: var(--accent);
-}
-
-.glass-card {
-    position: relative;
-    background: rgba(11, 5, 3, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 128, 0, 0.2);
-    padding: 25px 30px;
-    transition: transform 0.4s ease, border-color 0.4s ease;
-}
-
-.glass-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
 }
 
 .tech-stack {
@@ -473,38 +331,6 @@ h1, h2, h3, h4 {
     padding: 4px 10px;
     font-family: var(--font-heading);
     text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.scramble-on-hover {
-    display: inline-block;
-}
-
-@media screen and (max-width: 768px) {
-    .cyber-timeline::after {
-        left: 20px;
-    }
-    .timeline-item {
-        width: 100%;
-        padding-left: 50px;
-        padding-right: 15px;
-    }
-    .timeline-item.right {
-        left: 0;
-    }
-    .timeline-item.left .timeline-dot,
-    .timeline-item.right .timeline-dot {
-        left: 12px;
-    }
-}
-
-.timeline-content {
-    line-height: 1.2;
-}
-
-.timeline-content p,
-.timeline-content ul {
-    margin-bottom: 0.8rem !important;
 }
 
 .card-date-badge {
@@ -519,26 +345,14 @@ h1, h2, h3, h4 {
     font-weight: 700;
     font-size: 0.9rem;
     z-index: 10;
-    transition: all 0.3s ease;
     white-space: nowrap;
 }
 
-.glass-card:hover .card-date-badge {
-    background-color: var(--accent);
-    color: #000;
-    box-shadow: 0 0 10px var(--accent);
-}
-
 /* ==========================================================================
-   PODSTRONA: PLANER KGP (planer.html) - BAZA I STRUKTURA
-   Odpowiada za: Główny podział ekranu na mapę po lewej i archiwum po prawej
+   PLANER KGP (KGP.html)
 ========================================================================== */
 .planner-body {
     overflow: hidden;
-}
-
-.hidden {
-    display: none !important;
 }
 
 .split-layout {
@@ -558,10 +372,6 @@ h1, h2, h3, h4 {
     height: 100%;
 }
 
-/* ==========================================================================
-   PODSTRONA: PLANER KGP (planer.html) - PRAWY PASEK (ARCHIWUM)
-   Odpowiada za: Boczny panel po prawej stronie, filtry, listę gór i checkboxy
-========================================================================== */
 .archive-section {
     width: 340px;
     background: rgba(11, 5, 3, 0.95);
@@ -580,30 +390,12 @@ h1, h2, h3, h4 {
     padding: 10px 15px;
 }
 
-.custom-input:focus {
-    outline: none;
-    border-color: var(--accent);
-}
-
-select.custom-input option {
-    background: var(--bg-dark);
-}
-
 .db-list {
     flex-grow: 1;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-right: 10px;
-}
-
-.db-list::-webkit-scrollbar {
-    width: 4px;
-}
-
-.db-list::-webkit-scrollbar-thumb {
-    background: rgba(255, 128, 0, 0.5);
 }
 
 .db-item {
@@ -613,11 +405,6 @@ select.custom-input option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 0.3s;
-}
-
-.db-item:hover {
-    border-color: var(--accent);
 }
 
 .db-item.conquered {
@@ -625,19 +412,12 @@ select.custom-input option {
     background: rgba(40, 167, 69, 0.05);
 }
 
-.db-item.conquered .peak-name {
-    text-decoration: line-through;
-    color: var(--text-secondary);
-}
-
 .cyber-checkbox {
     width: 22px;
     height: 22px;
     appearance: none;
     border: 2px solid var(--accent);
-    background: transparent;
     cursor: pointer;
-    position: relative;
 }
 
 .cyber-checkbox:checked {
@@ -645,21 +425,7 @@ select.custom-input option {
     border-color: #28a745;
 }
 
-.cyber-checkbox:checked::after {
-    content: '✓';
-    position: absolute;
-    color: #000;
-    font-weight: bold;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 14px;
-}
-
-/* ==========================================================================
-   PODSTRONA: PLANER KGP (planer.html) - ELEMENTY MAPY
-   Odpowiada za: Wygląd kulek na mapie, podświetlenia i dymki (tooltipy)
-========================================================================== */
+/* --- ELEMENTY MAPY --- */
 .cyber-marker {
     width: 16px !important;
     height: 16px !important;
@@ -669,32 +435,15 @@ select.custom-input option {
     box-shadow: 0 0 15px var(--accent);
 }
 
-.cyber-marker.conquered-marker {
-    background-color: #28a745 !important;
-    border-color: var(--accent);
-    box-shadow: 0 0 15px var(--accent) !important;
-}
-
 .leaflet-tooltip.cyber-tooltip {
     background: rgba(11, 5, 3, 0.95);
     border: 1px solid var(--accent);
     color: white;
     font-family: var(--font-heading);
-    font-size: 1rem;
-    font-style: italic;
     padding: 5px 12px;
-    box-shadow: 0 0 15px rgba(255, 128, 0, 0.4);
-    border-radius: 0;
 }
 
-.leaflet-tooltip.cyber-tooltip::before {
-    border-top-color: var(--accent);
-}
-
-/* ==========================================================================
-   PODSTRONA: PLANER KGP (planer.html) - WYSKAKUJĄCE OKIENKO (MODAL)
-   Odpowiada za: Tło przyciemniające ekran, okno ze szczegółami szczytu i statystyki
-========================================================================== */
+/* --- MODALE --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -716,23 +465,8 @@ select.custom-input option {
     background: rgba(11, 5, 3, 0.95);
     border: 1px solid var(--accent);
     padding: 40px;
-    box-shadow: 0 0 40px rgba(255, 128, 0, 0.2);
 }
 
-.glass-modal .modal-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-bottom: none;
-    padding: 0 0 20px 0;
-}
-
-
-#modal-desc {
-    line-height: 1.6;
-    margin-top: 15px !important;
-    font-size: 0.95rem;
-}
 .close-btn {
     position: absolute;
     top: -15px;
@@ -744,19 +478,10 @@ select.custom-input option {
     border: 2px solid var(--accent);
     color: var(--accent);
     font-size: 1.5rem;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0,0,0,0.8);
-    line-height: 0;
-}
-
-.close-btn:hover {
-    background: var(--accent);
-    color: #000;
-    transform: rotate(90deg);
 }
 
 .modal-grid {
@@ -771,10 +496,6 @@ select.custom-input option {
     background: rgba(0, 0, 0, 0.5);
 }
 
-.stat-box.full-width {
-    grid-column: 1 / -1;
-}
-
 .stat-row {
     display: flex;
     justify-content: space-between;
@@ -784,8 +505,25 @@ select.custom-input option {
 }
 
 /* ==========================================================================
-   PLANER KGP - RESPONSYWNOŚĆ
-   Odpowiada za: Dostosowanie planera do ekranów telefonów komórkowych
+   SYSTEM AUTH
+========================================================================== */
+.logout-fixed {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 5000;
+    padding: 8px 20px;
+    background: rgba(11, 5, 3, 0.9);
+}
+
+.btn-outline-danger {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    background: transparent;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSYWNOŚĆ)
 ========================================================================== */
 @media (max-width: 991px) {
     .split-layout {
@@ -795,7 +533,6 @@ select.custom-input option {
     }
     .map-section {
         height: 50vh;
-        width: 100%;
     }
     .archive-section {
         width: 100%;
@@ -808,41 +545,140 @@ select.custom-input option {
         overflow: auto;
     }
 }
+
+@media (max-width: 768px) {
+    .carousel-stacked {
+        width: 80%;
+        height: 450px;
+    }
+    .stacked-card.next,
+    .stacked-card.prev {
+        z-index: 10;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .cyber-timeline::after {
+        left: 20px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 15px;
+    }
+    .timeline-item.right {
+        left: 0;
+    }
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+        left: 12px;
+    }
+}
 /* ==========================================================================
-   SYSTEM AUTORYZACJI (ADMIN / GUEST)
+   STRONA O MNIE (BENTO GRID & PROFILE)
 ========================================================================== */
-/* Zablokowany checkbox dla gościa */
-.cyber-checkbox:disabled {
-    border-color: rgba(255, 128, 0, 0.2);
-    cursor: not-allowed;
-    opacity: 0.4;
+
+.profile-frame {
+    position: relative;
+    padding: 15px;
 }
 
-.cyber-checkbox:disabled:checked {
-    background: rgba(40, 167, 69, 0.4);
-    border-color: rgba(40, 167, 69, 0.4);
+.profile-img {
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+    filter: grayscale(30%);
+    transition: all 0.5s ease;
+    border: 1px solid rgba(255, 128, 0, 0.3);
 }
 
-/* Przycisk wylogowania */
-.btn-outline-danger {
-    border: 1px solid #dc3545;
-    color: #dc3545;
-    background: transparent;
-    transition: 0.3s;
+.frame-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    border-top: 4px solid var(--accent);
+    border-left: 4px solid var(--accent);
+    z-index: 1;
 }
 
-.btn-outline-danger:hover {
-    background: #dc3545;
-    color: white;
-    border-color: #dc3545;
+.profile-frame:hover .profile-img {
+    filter: grayscale(0%);
+    transform: translate(10px, 10px);
 }
-.logout-fixed {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    z-index: 5000;
-    font-family: var(--font-heading);
-    font-size: 0.9rem;
-    padding: 8px 20px;
-    background: rgba(11, 5, 3, 0.9);
+
+/* Bento Grid System */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.bento-item {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0; /* Override glass-card padding for images */
+}
+
+.bento-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    transition: all 0.5s ease;
+}
+
+.bento-item:hover img {
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+.bento-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.bento-main {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+}
+
+.bento-side {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    justify-content: center;
+}
+
+.bento-bottom {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    flex-direction: row-reverse;
+}
+
+/* Responsywność Bento */
+@media (max-width: 991px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .bento-main, .bento-side, .bento-bottom {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 300px;
+    }
+}
+.display-4{
+    align-items: center;
 }
